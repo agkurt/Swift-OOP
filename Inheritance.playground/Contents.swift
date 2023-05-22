@@ -80,3 +80,66 @@ var villa = Villa(numOfWindows: 10, garage: true)
 
 print(villa.numOfWindows!)
 
+ 
+// downcasting , upcasting , is , as , as! , as ?
+
+var palace1 = Palace(numOfWindows: 300, numOfTowers: 10)
+
+//is
+if palace1 is Palace {
+    print("That is palace")
+}else {
+    print("That is not palace")
+}
+
+//Upcasting
+
+var home1 : Home = Palace(numOfWindows: 300, numOfTowers: 10) as Home
+
+//downcasting
+var home2 = Home(numOfWindows: 15)
+
+
+var palace4 :Palace? = Home(numOfWindows: 10) as? Palace
+
+//PolyMorphism example
+
+
+class Employee {
+    func acceptedJob () {
+        print("Employee is happy")
+    }
+}
+
+class Manager:Employee {
+    func hire (e : Employee) {
+        e.acceptedJob()
+    }
+    func promote (e : Employee) {
+        if e is Teacher {
+            (e as! Teacher).addWage()
+            }else {
+                print("worker don't give promote")
+            }
+    }
+}
+
+class Worker : Employee {
+}
+
+class Teacher : Employee {
+    func addWage() {
+        print("Teacher is happy.")
+    }
+}
+
+var teacher :Employee = Teacher()
+var worker :Employee = Worker()
+
+var manager = Manager()
+manager.hire(e: teacher)
+manager.hire(e: worker)
+
+manager.promote(e: teacher)
+manager.promote(e: worker)
+
