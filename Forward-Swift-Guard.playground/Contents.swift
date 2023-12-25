@@ -2,7 +2,6 @@ import UIKit
 
 //Guard is to compare if statement.
 //better if
-//Koşul false ise çalışır.True durumu yoktur.
 //return veya throw ifadesi ile kullanılır.Function içinde yer alırlar genellikle.
 
 func personDescribing(name : String) {
